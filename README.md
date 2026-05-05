@@ -11,11 +11,13 @@ querySelectorAll() query the all element when it find and return list.
 ### 2. How do you create and insert a new element into the DOM?
 - first create new html tag
 - let Div = document.createElement('div');
-- Div.textContent = 'Hello World';
-- newDiv.className = 'job'; 
-- and then append with the end of the parent
-- const parent = document.querySelector('.job-list');
-- parent.appendChild(Div);
+- set message in tag
+- Div.textContent = 'New Job';
+- set class name
+- Div.className = 'job'; 
+- and then append with the end of the parent where i have a previously class which is .job-list adding into that section
+- const p = document.querySelector('.job-list');
+- p.appendChild(Div);
 
 
 ### 3. What is Event Bubbling? And how does it work?
