@@ -63,7 +63,7 @@
             <h2 class="font-bold text-base">Mobile First Corp</h2>
             <p class="text-sm text-base-content/60">React Native Developer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
         </div>
 
         <p class="text-sm  mt-2">
@@ -84,7 +84,7 @@
             <h2 class="font-bold text-base">Google</h2>
             <p class="text-sm text-base-content/60">Frontend Developer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
     </div>
 
     <p class="text-sm mt-2">
@@ -106,7 +106,7 @@
             <h2 class="font-bold text-base">Microsoft</h2>
             <p class="text-sm text-base-content/60">Backend Engineer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
     </div>
 
     <p class="text-sm mt-2">
@@ -127,7 +127,7 @@
             <h2 class="font-bold text-base">Amazon</h2>
             <p class="text-sm text-base-content/60">Cloud Engineer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
     </div>
 
     <p class="text-sm mt-2">
@@ -148,7 +148,7 @@
             <h2 class="font-bold text-base">Meta</h2>
             <p class="text-sm text-base-content/60">Full Stack Developer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
     </div>
 
     <p class="text-sm mt-2">
@@ -169,7 +169,7 @@
             <h2 class="font-bold text-base">Netflix</h2>
             <p class="text-sm text-base-content/60">UI Engineer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
     </div>
 
     <p class="text-sm mt-2">
@@ -190,7 +190,7 @@
             <h2 class="font-bold text-base">Tesla</h2>
             <p class="text-sm text-base-content/60">Software Engineer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
     </div>
 
     <p class="text-sm mt-2">
@@ -210,7 +210,7 @@
             <h2 class="font-bold text-base">Spotify</h2>
             <p class="text-sm text-base-content/60">Backend Developer</p>
         </div>
-        <img src="delete.png" alt="">
+        <img src="delete.png" alt="" onclick="deleteJob(this)" class="cursor-pointer">
     </div>
 
     <p class="text-sm mt-2">
@@ -278,7 +278,6 @@ function update() {
 }
 
 function filter(status) {
-    para=status;
 
         ['all', 'interview', 'rejected'].forEach(f => {
         const btn = document.getElementById(f);
@@ -293,6 +292,7 @@ function filter(status) {
         document.getElementById(status).classList.add('btn-primary');
 
         let count = 0;
+        para=status;
         jobCard.forEach(job => {
             const jobStatus = job.getAttribute('data-status');
             if (status === 'all' || jobStatus === status) {
@@ -310,7 +310,7 @@ function filter(status) {
             document.getElementById('jobn').textContent = `${count} of 8 Jobs`;
         }
         else {
-            document.getElementById('jobn').textContent = `8 Jobs`;
+            document.getElementById('jobn').textContent = `${jobCard.length} Jobs`;
         }
         empty(count, status);
 
@@ -326,6 +326,13 @@ function empty(count, status) {
             document.querySelector('body').classList.remove('h-screen');
         }
 
+}
+
+function deleteJob(img) {
+    const card = img.closest('.job');
+    card.remove();
+    update();
+    filter(para);
 }
     </script>
 </body>
