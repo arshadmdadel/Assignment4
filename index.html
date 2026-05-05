@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+
+</head>
+<body class="bg-[#F8FAFC] ">
+    <div class="container mx-auto px-4 py-4">
+    <h1 class="text-[40px] font-bold p-[10px] ">Job Application Tracker</h1>
+
+    <div class="flex gap-6 sm:flex-row flex-col  mt-6">
+
+        <div class="stats shadow w-full bg-[white]">
+        <div class="stat">
+        <div class="stat-title text-[18px] font-weight-bold text-[dark-gray]">Total</div>
+        <div class="stat-value" id="total-count">8</div>
+        </div>
+        </div>
+
+        <div class="stats shadow w-full bg-[white]">
+        <div class="stat">
+        <div class="stat-title text-[18px] font-weight-bold text-[dark-gray]">Interview</div>
+        <div class="stat-value text-success" id="interview-count">0</div>
+        </div>
+        </div>
+
+        <div class="stats shadow w-full bg-[white]">
+        <div class="stat">
+        <div class="stat-title text-[18px] font-weight-bold text-[dark-gray]">Rejected</div>
+        <div class="stat-value text-error" id="rejected-count">0</div>
+        </div>
+        </div>
+
+    </div>
+    </div>
+
+
+    <hr class="w-[80%] mx-auto my-6 border-gray-200">
+
+    <section class=" px-5 py-4 w-[80%] mx-auto ">
+        
+            <div class="flex items-center mb-4 justify-between ">
+                <h2 class="font-bold text-base">Available Jobs</h2>
+                <span class="text-sm opacity-50" id="jobn">8 jobs</span>
+            </div>
+
+        <div class="Btn">
+            <button id="all" class="btn btn-sm  btn-primary" onclick="filter('all')">All</button>
+            <button id="interview" class="btn btn-sm  btn-soft text-[gray]" onclick="filter('interview')">Interview</button>
+            <button id="rejected" class="btn btn-sm  btn-soft text-[gray]" onclick="filter('rejected')">Rejected</button>
+        </div>
+    </section>
+
+    <section class="space-y-4 w-[80%] mx-auto ">
+        <div class="job bg-white px-6 py-5 rounded-md shadow" data-status="none">
+        <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Mobile First Corp</h2>
+            <p class="text-sm text-base-content/60">React Native Developer</p>
+        </div>
+        <img src="delete.png" alt="">
+        </div>
+
+        <p class="text-sm  mt-2">
+            Remote • Full-time • $130,000 - $175,000</p>
+        <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+           <p class="text-sm text-base-content/70 mt-3">Description here...</p> 
+    <div class="flex gap-2 mt-4">
+      <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+      <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+
+        </div>
+
+        <!-- job2 -->
+<div class="job bg-white px-6 py-5 rounded-md shadow" data-status="none"> 
+    <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Google</h2>
+            <p class="text-sm text-base-content/60">Frontend Developer</p>
+        </div>
+        <img src="delete.png" alt="">
+    </div>
+
+    <p class="text-sm mt-2">
+        Remote • Full-time • $120,000 - $150,000
+    </p>
+    <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+    <p class="text-sm text-base-content/70 mt-3">Work on modern UI with React.</p> 
+    <div class="flex gap-2 mt-4">
+        <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+        <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+</div>
+
+
+
+<div class="job bg-white px-6 py-5 rounded-md shadow" data-status="none">
+    <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Microsoft</h2>
+            <p class="text-sm text-base-content/60">Backend Engineer</p>
+        </div>
+        <img src="delete.png" alt="">
+    </div>
+
+    <p class="text-sm mt-2">
+        Hybrid • Full-time • $110,000 - $140,000
+    </p>
+    <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+    <p class="text-sm text-base-content/70 mt-3">Build scalable APIs and services.</p> 
+    <div class="flex gap-2 mt-4">
+        <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+        <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+</div>
+
+
+<div class="job bg-white px-6 py-5 rounded-md shadow" data-status="none">
+    <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Amazon</h2>
+            <p class="text-sm text-base-content/60">Cloud Engineer</p>
+        </div>
+        <img src="delete.png" alt="">
+    </div>
+
+    <p class="text-sm mt-2">
+        Remote • Full-time • $130,000 - $160,000
+    </p>
+    <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+    <p class="text-sm text-base-content/70 mt-3">Manage AWS infrastructure.</p> 
+    <div class="flex gap-2 mt-4">
+        <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+        <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+</div>
+
+
+<div class="job bg-white px-6 py-5 rounded-md shadow" data-status="none">
+    <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Meta</h2>
+            <p class="text-sm text-base-content/60">Full Stack Developer</p>
+        </div>
+        <img src="delete.png" alt="">
+    </div>
+
+    <p class="text-sm mt-2">
+        Onsite • Full-time • $125,000 - $155,000
+    </p>
+    <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+    <p class="text-sm text-base-content/70 mt-3">Develop scalable web apps.</p> 
+    <div class="flex gap-2 mt-4">
+        <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+        <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+</div>
+
+
+<div class="job bg-white px-6 py-5 rounded-md shadow" data-status="none">
+    <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Netflix</h2>
+            <p class="text-sm text-base-content/60">UI Engineer</p>
+        </div>
+        <img src="delete.png" alt="">
+    </div>
+
+    <p class="text-sm mt-2">
+        Remote • Contract • $100,000 - $130,000
+    </p>
+    <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+    <p class="text-sm text-base-content/70 mt-3">Design streaming UI systems.</p> 
+    <div class="flex gap-2 mt-4">
+        <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+        <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+</div>
+
+
+<div class="job bg-white px-6 py-5 rounded-md shadow" data-status="none">
+    <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Tesla</h2>
+            <p class="text-sm text-base-content/60">Software Engineer</p>
+        </div>
+        <img src="delete.png" alt="">
+    </div>
+
+    <p class="text-sm mt-2">
+        Onsite • Full-time • $115,000 - $145,000
+    </p>
+    <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+    <p class="text-sm text-base-content/70 mt-3">Work on automation systems.</p> 
+    <div class="flex gap-2 mt-4">
+        <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+        <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+</div>
+
+<div class="job bg-white px-6 py-5 rounded-md shadow " data-status="none">
+    <div class="flex items-start justify-between">
+        <div>
+            <h2 class="font-bold text-base">Spotify</h2>
+            <p class="text-sm text-base-content/60">Backend Developer</p>
+        </div>
+        <img src="delete.png" alt="">
+    </div>
+
+    <p class="text-sm mt-2">
+        Remote • Full-time • $110,000 - $140,000
+    </p>
+    <button class="btn-status btn bg-[#EEF4FF] p-1 ">NOT APPLIED</button>
+    <p class="text-sm text-base-content/70 mt-3">Build music streaming APIs.</p> 
+    <div class="flex gap-2 mt-4">
+        <button class="btn btn-sm btn-outline btn-success" onclick="setStatus(this, 'interview')">INTERVIEW</button>
+        <button class="btn btn-sm btn-outline btn-error" onclick="setStatus(this, 'rejected')">REJECTED</button>
+    </div>
+</div>
+
+<div class="nojob  bg-white px-6 py-6 rounded-md shadow hidden">
+    <img class="im  container mx-auto size-20" src="jobs.png" alt="">
+    <h1 class="text-center text-xl font-bold mt-4">No jobs available.</h1>
+    <p class="text-center  text-gray-500 mt-4">Check back soon for new job opportunities</p>
+</div>
+    </section>
+
+    <script>
+        const jobCard = document.querySelectorAll('.job');
+        let para='all';
+
+function setStatus(button, status) {
+    const card = button.closest('.job');
+    card.setAttribute('data-status', status);
+    const statusButton = card.querySelector('.btn-status');
+
+    statusButton.classList.remove(
+        'btn-soft', 
+        'btn-success', 
+        'btn-error', 
+        'btn-xs',
+        'bg-[#EEF4FF]'
+    );
+
+    if (status === 'interview') {
+        statusButton.textContent = 'INTERVIEW';
+        statusButton.classList.add('btn-xs','btn-soft', 'btn-success');
+    } else if (status === 'rejected') {
+        statusButton.textContent = 'REJECTED';
+        statusButton.classList.add('btn-xs','btn-soft', 'btn-error');
+    }
+
+    update();
+    filter(para);
+
+}
+
+function update() {
+    let total = 0, interview = 0, rejected = 0;
+
+    jobCard.forEach(job => {
+        total++;
+        const status = job.getAttribute('data-status');
+        if (status === 'interview') interview++;
+        else if (status === 'rejected') rejected++;
+    });
+
+    document.getElementById('total-count').textContent = total;
+    document.getElementById('interview-count').textContent = interview;
+    document.getElementById('rejected-count').textContent = rejected;
+
+}
+
+function filter(status) {
+    para=status;
+
+        ['all', 'interview', 'rejected'].forEach(f => {
+        const btn = document.getElementById(f);
+        if (btn.classList.contains('btn-primary')){
+            btn.classList.remove('btn-primary');
+            btn.classList.add('btn-soft', 'text-[gray]');
+
+        }
+        });
+
+        document.getElementById(status).classList.remove('btn-soft', 'text-[gray]');
+        document.getElementById(status).classList.add('btn-primary');
+
+        let count = 0;
+        jobCard.forEach(job => {
+            const jobStatus = job.getAttribute('data-status');
+            if (status === 'all' || jobStatus === status) {
+                job.style.display = 'block';
+                count++;
+            } else {
+                job.style.display = 'none';
+            }
+        });
+        console.log(count);
+
+        if (status === 'rejected') {
+            document.getElementById('jobn').textContent = `${count} of 8 Jobs`;
+        } else if (status === 'interview') {
+            document.getElementById('jobn').textContent = `${count} of 8 Jobs`;
+        }
+        else {
+            document.getElementById('jobn').textContent = `8 Jobs`;
+        }
+        empty(count, status);
+
+}
+
+function empty(count, status) {
+        if(count===0 && status!== 'all'){
+            document.querySelector('.nojob').classList.remove('hidden');
+            document.querySelector('body').classList.add('h-screen');
+        }
+        else{
+            document.querySelector('.nojob').classList.add('hidden');
+            document.querySelector('body').classList.remove('h-screen');
+        }
+
+}
+    </script>
+</body>
+</html>
