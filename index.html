@@ -232,7 +232,6 @@
     </section>
 
     <script>
-        const jobCard = document.querySelectorAll('.job');
         let para='all';
 
 function setStatus(button, status) {
@@ -263,6 +262,7 @@ function setStatus(button, status) {
 
 function update() {
     let total = 0, interview = 0, rejected = 0;
+    let jobCard = document.querySelectorAll('.job');
 
     jobCard.forEach(job => {
         total++;
@@ -293,6 +293,7 @@ function filter(status) {
 
         let count = 0;
         para=status;
+        let jobCard = document.querySelectorAll('.job');
         jobCard.forEach(job => {
             const jobStatus = job.getAttribute('data-status');
             if (status === 'all' || jobStatus === status) {
@@ -305,9 +306,9 @@ function filter(status) {
         console.log(count);
 
         if (status === 'rejected') {
-            document.getElementById('jobn').textContent = `${count} of 8 Jobs`;
+            document.getElementById('jobn').textContent = `${count} of ${jobCard.length} Jobs`;
         } else if (status === 'interview') {
-            document.getElementById('jobn').textContent = `${count} of 8 Jobs`;
+            document.getElementById('jobn').textContent = `${count} of ${jobCard.length} Jobs`;
         }
         else {
             document.getElementById('jobn').textContent = `${jobCard.length} Jobs`;
