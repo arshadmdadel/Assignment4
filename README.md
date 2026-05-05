@@ -31,9 +31,4 @@ querySelectorAll() query the all element when it find and return list.
 ---
 
 
-**Technology Stack:**
-- HTML
-- CSS (Vanilla/Tailwind/DaisyUI)
-- JavaScript (Vanilla)
-
 
